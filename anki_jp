@@ -1,0 +1,105 @@
+#!/usr/local/bin/python3
+from anki_jp_modules import id_facts, gen_term
+import genanki
+import sys, os, datetime
+
+jp_model = genanki.Model(
+    id_facts.jp_model_id,
+    'Japanese Model',
+    fields=[
+        {'name': 'Word'},
+        {'name': 'Prononciation'},
+        {'name': 'Accent'},
+        {'name': 'Definition'},
+        {'name': 'Examples'}
+    ],
+    templates=[
+        {
+            'name': 'Basic',
+            'qfmt': '<b>{{Word}}</b>',
+            'afmt': '<b>{{Word}}</b> {{Prononciation}} [{{Accent}}]<hr /> <p>{{Definition}}</p>{{Examples}}'
+        }
+    ]
+)
+
+jp_deck = genanki.Deck(
+    id_facts.jp_deck_id,
+    'Japanese'
+)
+
+file_name = 'list'
+output_file_name = 'jp_deck'
+manual_tag = False
+tex_tag = False
+
+will_escape = False
+for i in range(1, len(sys.argv)):
+    if will_escape:
+        will_escape = False
+        continue
+
+    if sys.argv[i][0] == '-':
+        if sys.argv[i][1:] == 'm':
+            manual_tag = True
+        elif sys.argv[i][1:] == 'o':
+            parts = sys.argv[i+1].split('.')
+            if parts[len(parts)-1] == 'apkg':
+                output_file_name = sys.argv[i+1][:-5]
+            else:
+                output_file_name = sys.argv[i+1]
+            will_escape = True
+        elif sys.argv[i][1:] == 'x':
+            tex_tag = True
+    else:
+        file_name = sys.argv[i]
+
+with open(file_name, 'r') as fin:
+    text = ''
+    lines = fin.readlines()
+    lines_count = len(lines)
+    count = 0
+    for line in lines:
+        if not manual_tag:
+            sys.stdout.write('\r|{}{}| {}/{}'.format('█'*int(18 * count/lines_count), '-'*(18 - int(18 * count/lines_count)), count, lines_count))
+            sys.stdout.flush()
+
+        raw = line.strip().split(' ')
+        for term in gen_term.get_terms(raw[0], manual_tag):
+            jp_eg_note_fields = term
+            jp_eg_note_fields[2] = raw[1]
+
+            text += '<p><b>{}</b><br />{} [{}]</p><p>{}</p>{}<p>SPLIT-HERE</p>'.format(term[0], term[1], term[2], term[3], term[4])
+
+            jp_eg_note = genanki.Note(
+                model=jp_model,
+                fields=jp_eg_note_fields
+            )
+            jp_deck.add_note(jp_eg_note)
+
+        count += 1
+
+    if not manual_tag:
+        sys.stdout.write('\r|{}| {}/{}'.format('█'*18, lines_count, lines_count))
+
+    if tex_tag:
+        with open('output.html', 'w+') as fout:
+            fout.write(text)
+
+        os.system('pandoc output.html -o output.tex')
+
+        with open('output.tex', 'r') as fin:
+            text = fin.read().replace('SPLIT-HERE', '\\hr')
+            with open('output.tex', 'w+') as fout:
+                fout.write(text)
+
+            header = open('/usr/local/bin/anki_jp_modules/header.tex', 'r').read()
+            main = open('output.tex', 'r').read()
+
+            with open('{}-{}.tex'.format(output_file_name, datetime.datetime.now().strftime("%y-%d-%m")), 'w+') as fout:
+                fout.write(header+main+'\n\\end{multicols*}\n\\end{document}')
+
+        os.system('rm output.*')
+
+    print('')
+
+genanki.Package(jp_deck).write_to_file('{}.apkg'.format(output_file_name))
