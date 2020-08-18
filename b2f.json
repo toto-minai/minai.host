@@ -1,0 +1,36 @@
+{
+  "gong": {
+    "bopomofo": "ㄍㄨㄥ",
+    "1": [
+      {
+        "furigana": "こう",
+        "examples": [
+          "公園",
+          "工場"
+        ]
+      }
+    ]
+  },
+  "jiang": {
+    "bopomofo": "ㄐㄧㄤˇ",
+    "3": [
+      {
+        "furigana": "こう",
+        "examples": [
+          "講座"
+        ]
+      }
+    ]
+  },
+  "yuan": {
+    "bopomofo": "ㄩㄢˇ",
+    "3": [
+      {
+        "furigana": "えん",
+        "examples": [
+          "望遠鏡"
+        ]
+      }
+    ]
+  }
+}
