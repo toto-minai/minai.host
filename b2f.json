@@ -1,4 +1,37 @@
 {
+  "fan": {
+    "bopomofo": "ㄈㄢˋ",
+    "4": [
+      {
+        "furigana": "はん",
+        "examples": [
+          "販売機"
+        ]
+      }
+    ]
+  },
+  "fang": {
+    "bopomofo": "ㄈㄤˋ",
+    "4": [
+      {
+        "furigana": "ほう",
+        "examples": [
+          "放題"
+        ]
+      }
+    ]
+  },
+  "gao": {
+    "bopomofo": "ㄍㄠˋ",
+    "4": [
+      {
+        "furigana": "こく",
+        "examples": [
+          "広告"
+        ]
+      }
+    ]
+  },
   "gong": {
     "bopomofo": "ㄍㄨㄥ",
     "1": [
@@ -7,6 +40,28 @@
         "examples": [
           "公園",
           "工場"
+        ]
+      }
+    ]
+  },
+  "guang": {
+    "bopomofo": "ㄍㄨㄤˇ",
+    "3": [
+      {
+        "furigana": "こう",
+        "examples": [
+          "広告"
+        ]
+      }
+    ]
+  },
+  "ji": {
+    "bopomofo": "ㄐㄧˇ",
+    "3": [
+      {
+        "furigana": "きゅう",
+        "examples": [
+          "給料"
         ]
       }
     ]
@@ -22,6 +77,116 @@
       }
     ]
   },
+  "jing": {
+    "bopomofo": "ㄐㄧㄥˇ",
+    "3": [
+      {
+        "furigana": "けい",
+        "examples": [
+          "夜景"
+        ]
+      }
+    ]
+  },
+  "kuang": {
+    "bopomofo": "ㄎㄨㄤˋ",
+    "4": [
+      {
+        "furigana": "きょう",
+        "examples": [
+          "状況"
+        ]
+      }
+    ]
+  },
+  "li": {
+    "bopomofo": "ㄌㄧˇ",
+    "3": [
+      {
+        "furigana": "り",
+        "examples": [
+          "修理"
+        ]
+      }
+    ]
+  },
+  "mu": {
+    "bopomofo": "ㄇㄨˋ",
+    "4": [
+      {
+        "furigana": "ぼく",
+        "examples": [
+          "牧場"
+        ]
+      }
+    ]
+  },
+  "pu": {
+    "bopomofo": "ㄆㄨˇ",
+    "3": [
+      {
+        "furigana": "ふ",
+        "examples": [
+          "普通車"
+        ]
+      }
+    ]
+  },
+  "quan": {
+    "bopomofo": "ㄑㄩㄢˋ",
+    "4": [
+      {
+        "furigana": "けん",
+        "examples": [
+          "定期券"
+        ]
+      }
+    ]
+  },
+  "ran": {
+    "bopomofo": "ㄖㄢˊ",
+    "2": [
+      {
+        "furigana": "ぜん",
+        "examples": [
+          "自然"
+        ]
+      }
+    ]
+  },
+  "xi": {
+    "bopomofo": "ㄒㄧˊ",
+    "2": [
+      {
+        "furigana": "せき",
+        "examples": [
+          "空席"
+        ]
+      }
+    ]
+  },
+  "xing": {
+    "bopomofo": "ㄒㄧㄥ",
+    "1": [
+      {
+        "furigana": "せい",
+        "examples": [
+          "星座"
+        ]
+      }
+    ]
+  },
+  "xiu": {
+    "bopomofo": "ㄒㄧㄡ",
+    "1": [
+      {
+        "furigana": "しゅう",
+        "examples": [
+          "修理"
+        ]
+      }
+    ]
+  },
   "yuan": {
     "bopomofo": "ㄩㄢˇ",
     "3": [
@@ -29,6 +194,39 @@
         "furigana": "えん",
         "examples": [
           "望遠鏡"
+        ]
+      }
+    ]
+  },
+  "zhuang": {
+    "bopomofo": "ㄓㄨㄤˋ",
+    "4": [
+      {
+        "furigana": "じょう",
+        "examples": [
+          "状況"
+        ]
+      }
+    ]
+  },
+  "zi": {
+    "bopomofo": "ㄗˋ",
+    "4": [
+      {
+        "furigana": "し",
+        "examples": [
+          "自然"
+        ]
+      }
+    ]
+  },
+  "zuo": {
+    "bopomofo": "ㄗㄨㄛˋ",
+    "4": [
+      {
+        "furigana": "ざ",
+        "examples": [
+          "星座"
         ]
       }
     ]
